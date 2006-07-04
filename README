@@ -1,0 +1,165 @@
+popt
+------------------------------------------
+The popt library exists essentially for parsing command line options.
+Some specific advantages of popt are no global variables (allowing
+multiple passes in parsing argv), parsing an arbitrary array of
+argv-style elements (allowing parsing of command-line-strings from any
+source), a standard method of option aliasing, ability to exec external
+option filters, and automatic generation of help and usage messages. 
+
+Runtime requirements:
+  cygwin-1.5.20-1
+  libintl3-0.14.5-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.20-1
+  autoconf2.5-2.59-2
+  automake1.9-1.9.6-1
+  binutils-20050610-1
+  cygport-0.2.2-1
+  gawk-3.1.5-2
+  gcc-core-3.4.4-1
+  libtool1.5-1.5.22-1
+  make-3.80-1
+  sed-4.1.5-1
+
+Canonical website:
+  http://www.rpm.org/dark_corners/popt/
+
+Canonical download:
+  http://rpm.net.in/mirror/
+
+-------------------------------------------
+
+Build instructions:
+  unpack popt-1.10.4-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./popt-1.10.4-X.cygport all
+
+This will create:
+  /usr/src/popt-1.10.4-X-src.tar.bz2
+  /usr/src/popt-1.10.4-X.tar.bz2
+  /usr/src/popt-doc-1.10.4-X.tar.bz2
+  /usr/src/libpopt0-1.10.4-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /usr/include/popt.h
+  /usr/lib/libpopt.a
+  /usr/lib/libpopt.dll.a
+  /usr/lib/libpopt.la
+  /usr/share/doc/Cygwin/popt-1.10.4.README
+  /usr/share/doc/popt-1.10.4/ABOUT-NLS
+  /usr/share/doc/popt-1.10.4/COPYING
+  /usr/share/doc/popt-1.10.4/Changes
+  /usr/share/doc/popt-1.10.4/README
+  /usr/share/locale/cs/LC_MESSAGES/popt.mo
+  /usr/share/locale/da/LC_MESSAGES/popt.mo
+  /usr/share/locale/de/LC_MESSAGES/popt.mo
+  /usr/share/locale/es/LC_MESSAGES/popt.mo
+  /usr/share/locale/eu_ES/LC_MESSAGES/popt.mo
+  /usr/share/locale/fi/LC_MESSAGES/popt.mo
+  /usr/share/locale/fr/LC_MESSAGES/popt.mo
+  /usr/share/locale/gl/LC_MESSAGES/popt.mo
+  /usr/share/locale/hu/LC_MESSAGES/popt.mo
+  /usr/share/locale/id/LC_MESSAGES/popt.mo
+  /usr/share/locale/is/LC_MESSAGES/popt.mo
+  /usr/share/locale/it/LC_MESSAGES/popt.mo
+  /usr/share/locale/ja/LC_MESSAGES/popt.mo
+  /usr/share/locale/ko/LC_MESSAGES/popt.mo
+  /usr/share/locale/no/LC_MESSAGES/popt.mo
+  /usr/share/locale/pl/LC_MESSAGES/popt.mo
+  /usr/share/locale/pt/LC_MESSAGES/popt.mo
+  /usr/share/locale/pt_BR/LC_MESSAGES/popt.mo
+  /usr/share/locale/ro/LC_MESSAGES/popt.mo
+  /usr/share/locale/ru/LC_MESSAGES/popt.mo
+  /usr/share/locale/sk/LC_MESSAGES/popt.mo
+  /usr/share/locale/sl/LC_MESSAGES/popt.mo
+  /usr/share/locale/sr/LC_MESSAGES/popt.mo
+  /usr/share/locale/sv/LC_MESSAGES/popt.mo
+  /usr/share/locale/tr/LC_MESSAGES/popt.mo
+  /usr/share/locale/uk/LC_MESSAGES/popt.mo
+  /usr/share/locale/wa/LC_MESSAGES/popt.mo
+  /usr/share/locale/zh/LC_MESSAGES/popt.mo
+  /usr/share/locale/zh_CN/LC_MESSAGES/popt.mo
+  /usr/share/locale/zh_TW/LC_MESSAGES/popt.mo
+  /usr/share/man/man3/popt.3.gz
+
+Files included in the runtime library package:
+
+  /usr/bin/cygpopt-0.dll
+
+Files included in the documentation package:
+
+  /usr/share/doc/popt-1.10.4/html/annotated.html
+  /usr/share/doc/popt-1.10.4/html/bug.html
+  /usr/share/doc/popt-1.10.4/html/deprecated.html
+  /usr/share/doc/popt-1.10.4/html/doxygen.css
+  /usr/share/doc/popt-1.10.4/html/doxygen.png
+  /usr/share/doc/popt-1.10.4/html/files.html
+  /usr/share/doc/popt-1.10.4/html/findme_8c-source.html
+  /usr/share/doc/popt-1.10.4/html/findme_8c.html
+  /usr/share/doc/popt-1.10.4/html/findme_8h-source.html
+  /usr/share/doc/popt-1.10.4/html/findme_8h.html
+  /usr/share/doc/popt-1.10.4/html/functions.html
+  /usr/share/doc/popt-1.10.4/html/functions_vars.html
+  /usr/share/doc/popt-1.10.4/html/globals.html
+  /usr/share/doc/popt-1.10.4/html/globals_defs.html
+  /usr/share/doc/popt-1.10.4/html/globals_enum.html
+  /usr/share/doc/popt-1.10.4/html/globals_eval.html
+  /usr/share/doc/popt-1.10.4/html/globals_func.html
+  /usr/share/doc/popt-1.10.4/html/globals_type.html
+  /usr/share/doc/popt-1.10.4/html/globals_vars.html
+  /usr/share/doc/popt-1.10.4/html/hierarchy.html
+  /usr/share/doc/popt-1.10.4/html/index.html
+  /usr/share/doc/popt-1.10.4/html/pages.html
+  /usr/share/doc/popt-1.10.4/html/popt_8c-source.html
+  /usr/share/doc/popt-1.10.4/html/popt_8c.html
+  /usr/share/doc/popt-1.10.4/html/popt_8h-source.html
+  /usr/share/doc/popt-1.10.4/html/popt_8h.html
+  /usr/share/doc/popt-1.10.4/html/poptconfig_8c-source.html
+  /usr/share/doc/popt-1.10.4/html/poptconfig_8c.html
+  /usr/share/doc/popt-1.10.4/html/popthelp_8c-source.html
+  /usr/share/doc/popt-1.10.4/html/popthelp_8c.html
+  /usr/share/doc/popt-1.10.4/html/poptint_8h-source.html
+  /usr/share/doc/popt-1.10.4/html/poptint_8h.html
+  /usr/share/doc/popt-1.10.4/html/poptparse_8c-source.html
+  /usr/share/doc/popt-1.10.4/html/poptparse_8c.html
+  /usr/share/doc/popt-1.10.4/html/structoption_stack_entry-members.html
+  /usr/share/doc/popt-1.10.4/html/structoption_stack_entry.html
+  /usr/share/doc/popt-1.10.4/html/structpbm__set-members.html
+  /usr/share/doc/popt-1.10.4/html/structpbm__set.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_alias-members.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_alias.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_context__s-members.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_context__s.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_done__s-members.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_done__s.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_item__s-members.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_item__s.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_option-members.html
+  /usr/share/doc/popt-1.10.4/html/structpopt_option.html
+  /usr/share/doc/popt-1.10.4/html/system_8h-source.html
+  /usr/share/doc/popt-1.10.4/html/system_8h.html
+  /usr/share/doc/popt-1.10.4/html/tab_b.gif
+  /usr/share/doc/popt-1.10.4/html/tab_l.gif
+  /usr/share/doc/popt-1.10.4/html/tab_r.gif
+  /usr/share/doc/popt-1.10.4/html/tabs.css
+  /usr/share/doc/popt-1.10.4/html/todo.html
+
+------------------
+
+Port Notes:
+
+----- version 1.10.4-1 -----
+Unofficial version bump, including Doxygen documentation.
+Last official release was 1.6.4-4.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
