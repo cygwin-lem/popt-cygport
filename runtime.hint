@@ -1,5 +1,5 @@
 category: Libs
-requires: cygwin libintl3
+requires: cygwin libintl8 popt
 external-source: popt
 sdesc: "Command-line option parser library (runtime)"
 ldesc: "The popt library exists essentially for parsing command line options.

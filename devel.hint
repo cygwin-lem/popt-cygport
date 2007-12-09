@@ -1,5 +1,7 @@
 category: Libs
-sdesc: "Command-line option parser library (locale and docs)"
+requires: cygwin libpopt0 gettext
+external-source: popt
+sdesc: "Command-line option parser library (development)"
 ldesc: "The popt library exists essentially for parsing command line options.
 Some specific advantages of popt are no global variables (allowing
 multiple passes in parsing argv), parsing an arbitrary array of
