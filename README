@@ -8,21 +8,21 @@ source), a standard method of option aliasing, ability to exec external
 option filters, and automatic generation of help and usage messages. 
 
 Runtime requirements:
-  cygwin-1.5.24-2
+  cygwin-1.5.25-7
   libintl8-0.15-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.24-2
+  cygwin-1.5.25-7
   autoconf2.5-2.61-1
-  automake1.9-1.9.6-1
+  automake1.10-1.10-1
   binutils-20050610-1
-  cygport-0.2.2-1
-  gawk-3.1.5-2
-  gcc-core-3.4.4-1
-  libtool1.5-1.5.22-1
-  make-3.80-1
-  sed-4.1.5-1
+  cygport-0.3.7-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  libtool1.5-1.5.23a-2
+  make-3.81-1
+  sed-4.1.5-2
 
 Canonical website:
   http://www.rpm.org/dark_corners/popt/
@@ -33,17 +33,17 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack popt-1.10.4-X-src.tar.bz2
+  unpack popt-1.13-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./popt-1.10.4-X.cygport all
+  cygport ./popt-1.13-X.cygport all
 
 This will create:
-  /usr/src/popt-1.10.4-X-src.tar.bz2
-  /usr/src/popt-1.10.4-X.tar.bz2
-  /usr/src/popt-doc-1.10.4-X.tar.bz2
-  /usr/src/libpopt0-1.10.4-X.tar.bz2
+  /usr/src/popt-1.13-X-src.tar.bz2
+  /usr/src/popt-1.13-X.tar.bz2
+  /usr/src/libpopt-devel-1.13-X.tar.bz2
+  /usr/src/libpopt0-1.13-X.tar.bz2
 
 -------------------------------------------
 
@@ -64,6 +64,7 @@ Files included in the binary packages:
   /usr/share/locale/gl/LC_MESSAGES/popt.mo
   /usr/share/locale/hu/LC_MESSAGES/popt.mo
   /usr/share/locale/is/LC_MESSAGES/popt.mo
+  /usr/share/locale/it/LC_MESSAGES/popt.mo
   /usr/share/locale/ja/LC_MESSAGES/popt.mo
   /usr/share/locale/ko/LC_MESSAGES/popt.mo
   /usr/share/locale/nl/LC_MESSAGES/popt.mo
@@ -93,6 +94,12 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 1.13-1 -----
+Version bump.
+
+----- version 1.12-1 -----
+Version bump from rpm5.org.
 
 ----- version 1.10.4-1 -----
 Unofficial version bump, including Doxygen documentation.
