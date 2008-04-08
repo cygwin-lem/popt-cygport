@@ -13,12 +13,11 @@ Runtime requirements:
 
 Build requirements:
 (besides corresponding -devel packages)
-  cygwin-1.5.25-7
   autoconf2.5-2.61-1
   automake1.10-1.10-1
   binutils-20050610-1
-  cygport-0.3.7-1
-  gawk-3.1.5-4
+  cygport-0.3.8-1
+  gawk-3.1.6-1
   gcc-core-3.4.4-3
   libtool1.5-1.5.23a-2
   make-3.81-1
@@ -33,17 +32,17 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack popt-1.13-X-src.tar.bz2
+  unpack popt-1.14-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./popt-1.13-X.cygport all
+  cygport ./popt-1.14-X.cygport all
 
 This will create:
-  /usr/src/popt-1.13-X-src.tar.bz2
-  /usr/src/popt-1.13-X.tar.bz2
-  /usr/src/libpopt-devel-1.13-X.tar.bz2
-  /usr/src/libpopt0-1.13-X.tar.bz2
+  /usr/src/popt-1.14-X-src.tar.bz2
+  /usr/src/popt-1.14-X.tar.bz2
+  /usr/src/libpopt-devel-1.14-X.tar.bz2
+  /usr/src/libpopt0-1.14-X.tar.bz2
 
 -------------------------------------------
 
@@ -94,6 +93,9 @@ Files included in the binary packages:
 ------------------
 
 Port Notes:
+
+----- version 1.14-1 -----
+Version bump.
 
 ----- version 1.13-1 -----
 Version bump.
