@@ -1,6 +1,6 @@
 NAME="popt"
 VERSION=1.16
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="Command-line option parser library"
 DESCRIPTION="The popt library exists essentially for parsing command line options.
@@ -10,12 +10,22 @@ passes in parsing argv), parsing an arbitrary array of argv-style elements
 of option aliasing, ability to exec external option filters, and automatic
 generation of help and usage messages."
 HOMEPAGE="http://rpm5.org/"
-SRC_URI="http://rpm5.org/files/popt/${P}.tar.gz"
-PATCH_URI="1.16-cygwin.patch
-	   1.16-vpath.patch"
+SRC_URI="http://rpm5.org/files/popt/popt-${VERSION}.tar.gz"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-pkgconfig.patch
+	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-execfail.patch
+	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-man-page.patch
+	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-help.patch
+	1.16-cygwin.patch
+	1.16-vpath.patch
+"
 
-PKG_NAMES="${PN} libpopt0 libpopt-devel"
-popt_SUMMARY="${SUMMARY} (localization and docs)"
-popt_CONTENTS="usr/share/doc/ usr/share/locale/"
+PKG_NAMES="${PN} libpopt0 libpopt-common libpopt-devel"
+popt_CATEGORY="_obsolete"
+popt_REQUIRES="libpopt0"
+popt_CONTENTS=
+libpopt0_REQUIRES="libpopt-common"
 libpopt0_CONTENTS="usr/bin/cygpopt-0.dll"
+libpopt_common_CONTENTS="usr/share/doc/ usr/share/locale/"
+libpopt_devel_OBSOLETES="popt-devel"
 libpopt_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
