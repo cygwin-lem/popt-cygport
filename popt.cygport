@@ -1,6 +1,6 @@
 NAME="popt"
-VERSION=1.16
-RELEASE=2
+VERSION=1.18
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Command-line option parser library"
 DESCRIPTION="The popt library exists essentially for parsing command line options.
@@ -9,17 +9,57 @@ passes in parsing argv), parsing an arbitrary array of argv-style elements
 (allowing parsing of command-line-strings from any source), a standard method
 of option aliasing, ability to exec external option filters, and automatic
 generation of help and usage messages."
-HOMEPAGE="http://rpm5.org/"
-SRC_URI="http://rpm5.org/files/popt/popt-${VERSION}.tar.gz"
-PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-pkgconfig.patch
-	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-execfail.patch
-	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-man-page.patch
-	http://pkgs.fedoraproject.org/cgit/rpms/popt.git/plain/popt-1.16-help.patch
-	1.16-cygwin.patch
-	1.16-vpath.patch
+HOMEPAGE="https://github.com/rpm-software-management/popt/"
+
+
+################################
+## Source from a git repository
+################################
+GIT_REPO="https://github.com/rpm-software-management/popt"
+declare -A GIT_DATEHASH_BY_NAME=(
+  # git log --date=iso-strict --format='%cd/%H' -1
+  [1.18]=2020-06-23T14:15:00+03:00/7e6478831e93fda9419ef576f9819f49ba06f972
+  [1.18]=2020-06-23T14:15:00+03:00/popt-1.18-release
+)
+REV_HASH="${GIT_DATEHASH_BY_NAME[${VERSION}]#*/}"
+REV_DATE="${GIT_DATEHASH_BY_NAME[${VERSION}]%/*}"
+REV_DATE_SHORT="${GIT_DATEHASH_BY_NAME[${VERSION}]%T*}"
+GIT_BASENAME="${GIT_REPO##*/}"
+SRC_URI="${GIT_REPO}/archive/${REV_HASH}.tar.gz"   # GitHub
+#SRC_URI="${GIT_REPO}/-/archive/${REV_HASH}/${GIT_BASENAME}-${REV_HASH}.tar.bz2" # GitLab
+SRC_DIR="${GIT_BASENAME}-${REV_HASH}"
+
+################################
+## Patch files
+################################
+# Patch filenames are in a default style of 'git format-patch'
+PATCH_URI=$(\
+  find -maxdepth 1 -type f -name '[0-9][0-9][0-9][0-9]-*.patch' \
+  | sort \
+)
+# Additional patches, if any
+PATCH_URI+="
+  1.18-cygwin.patch
+  1.18-vpath.patch
 "
 
+# Remove "!" below, when you want not to tweak expected results.
+[ ! ] && PATCH_URI+="\
+  1.18-testit.patch
+"
+
+################################
+## Requirements for building
+################################
+BUILD_REQUIRES="\
+  pkg-config\
+  doxygen\
+  gettext-devel\
+  libiconv-devel\
+  libintl-devel\
+"
+
+################################
 PKG_NAMES="${PN} libpopt0 libpopt-common libpopt-devel"
 popt_CATEGORY="_obsolete"
 popt_REQUIRES="libpopt0"
@@ -29,3 +69,29 @@ libpopt0_CONTENTS="usr/bin/cygpopt-0.dll"
 libpopt_common_CONTENTS="usr/share/doc/ usr/share/locale/"
 libpopt_devel_OBSOLETES="popt-devel"
 libpopt_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
+
+################################
+## COMMENTS FROM HERE TO
+:<<'END_OF_COMMENTS'
+
+# An ignorable warning brought by autoreconf-2.69:
+
+```
+autoreconf-2.69: configure.ac: tracing
+Use of uninitialized value $args[0] in split at /usr/bin/autoreconf-2.69 line 493, <GEN2> line 8.
+```
+
+It will disappear when using autoconf v2.69d or later,
+fixed at the commit
+https://git.savannah.gnu.org/cgit/autoconf.git/commit/?id=b0d20c049bda80a9d323326ae5ea3fd5e4857712
+
+# 1.18-testit.patch:
+
+In the upstream CI, the original `testit.sh` will pass the tests.
+But, on cygwin `src_test()` will get some failures without this patch.
+
+The diffrences are program names printed in usage,
+and so they are not critical and would be acceptable.
+
+END_OF_COMMENTS
+################################
